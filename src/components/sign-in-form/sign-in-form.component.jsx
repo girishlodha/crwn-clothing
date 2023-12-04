@@ -2,7 +2,7 @@ import { useState , useContext } from "react"
 import { signInWithGooglePopup,createAuthUserWithEmailAndPassword , createUserDocumentAuth,signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase.utils"
 import FormInput from '../form-input/form-input.component'
 import './sign-in-form.styles.scss'
-import Button from '../button/button.component'
+import Button , {BUTTON_TYPE_CLASSES} from '../button/button.component'
 
 const defaultFormFields = {
     email:'',
@@ -14,7 +14,7 @@ const SignInForm = () =>{
    
     const { email , password} = formFields;
    // const {setCurrentUser} = useContext(UserContext)
-    console.log(formFields)
+   // console.log(formFields)
     const resetFormFields = () =>{
         setFormFields(defaultFormFields)
     }
@@ -71,7 +71,7 @@ const SignInForm = () =>{
            
             <div className="buttons-container">
             <Button type = "submit">Sign In</Button>
-            <Button type = "button" buttontype= 'google' onClick = {signInWithGoogle}>Google Sign In</Button>
+            <Button type = "button" buttontype= {BUTTON_TYPE_CLASSES.google} onClick = {signInWithGoogle}>Google Sign In</Button>
             </div>
           </form>
         </div>
